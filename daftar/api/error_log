@@ -1,0 +1,13 @@
+[17-Jul-2023 16:14:54 UTC] PHP Warning:  Undefined property: stdClass::$data in /home/openhouse/public_html/2023/daftar/api/connect.php on line 35
+[17-Jul-2023 16:14:54 UTC] PHP Warning:  Attempt to read property "nrp" on null in /home/openhouse/public_html/2023/daftar/api/ceklogin.php on line 19
+[17-Jul-2023 16:14:54 UTC] PHP Warning:  Attempt to read property "nama" on null in /home/openhouse/public_html/2023/daftar/api/ceklogin.php on line 20
+[17-Jul-2023 16:14:54 UTC] PHP Warning:  Attempt to read property "prodi" on null in /home/openhouse/public_html/2023/daftar/api/ceklogin.php on line 21
+[17-Jul-2023 16:14:54 UTC] PHP Warning:  Attempt to read property "id_kelompok" on null in /home/openhouse/public_html/2023/daftar/api/ceklogin.php on line 22
+[17-Jul-2023 16:14:54 UTC] PHP Warning:  Undefined variable $loginValid in /home/openhouse/public_html/2023/daftar/api/ceklogin.php on line 105
+[19-Jul-2023 15:14:20 UTC] PHP Warning:  Undefined array key 3 in /home/openhouse/public_html/daftar/api/ceklogin.php on line 12
+[19-Jul-2023 15:14:20 UTC] PHP Warning:  Undefined array key 4 in /home/openhouse/public_html/daftar/api/ceklogin.php on line 12
+[19-Jul-2023 20:01:12 UTC] PHP Warning:  Undefined array key "nrp" in /home/openhouse/public_html/daftar/api/ceklogin.php on line 6
+[19-Jul-2023 20:01:12 UTC] PHP Warning:  Undefined array key "password" in /home/openhouse/public_html/daftar/api/ceklogin.php on line 7
+[19-Jul-2023 20:01:12 UTC] PHP Warning:  Undefined array key 3 in /home/openhouse/public_html/daftar/api/ceklogin.php on line 12
+[19-Jul-2023 20:01:12 UTC] PHP Warning:  Undefined array key 4 in /home/openhouse/public_html/daftar/api/ceklogin.php on line 12
+[19-Jul-2023 20:01:12 UTC] PHP Warning:  Undefined variable $loginValid in /home/openhouse/public_html/daftar/api/ceklogin.php on line 119

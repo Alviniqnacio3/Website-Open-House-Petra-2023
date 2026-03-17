@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <link rel="icon" type="image/x-icon" href="../asset/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+        </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- <link href="css/comingsoon.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+        body {
+            background-image: url(../asset/bg_coming-soom.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            /* background-position: center center; */
+            background-position-y: top;
+            background-position-x: center;
+        }
+
+        video {
+            height: auto;
+            width: 100%;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: #FDCB00;
+            text-shadow: 1px 1px 15px #27946D, 1px 1px 15px #27946D;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        /* For Desktop View */
+        @media screen and (min-width: 1024px) {
+
+            #title {
+                font-size: 100px;
+            }
+
+            h1 {
+                font-family: 'Montserrat', sans-serif;
+                color: #FDCB00;
+                text-shadow: 1px 1px 20px #27946D, 1px 1px 20px #27946D;
+                text-align: center;
+                letter-spacing: 10px;
+            }
+        }
+
+        /* For Tablet View */
+        @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+            #title {
+                font-size: 80px;
+            }
+
+            h1 {
+                font-family: 'Montserrat', sans-serif;
+                color: #FDCB00;
+                text-shadow: 1px 1px 15px #27946D, 1px 1px 15px #27946D;
+                text-align: center;
+                letter-spacing: 10px;
+            }
+        }
+
+        /* For Mobile Phones Portrait or Landscape View */
+        @media screen and (max-device-width: 640px) {
+            #title {
+                font-size: 50px;
+            }
+            h1 {
+                font-family: 'Montserrat', sans-serif;
+                color: #FDCB00;
+                text-shadow: 1px 1px 15px #27946D, 1px 1px 15px #27946D;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
+        <h1 id="title" class="col fw-bold text-center">COMING SOON</h1>
+        <video controls autoplay muted id="video" class="col-md-8">
+            <source src="../asset/Teaser Oh Fix.mp4" type="video/mp4">
+        </video>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type='text/javascript'>
+
+        $('#title').hide();
+        document.getElementById('video').addEventListener('ended', myHandler, false);
+        function myHandler(e) {
+            $('#video').fadeOut(2000, function () {
+                $('#title').fadeIn(2000);
+            });
+        }
+    </script>
+</body>
+
+</html>
