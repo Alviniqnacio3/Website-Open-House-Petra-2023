@@ -24,22 +24,22 @@ $foto = mysqli_fetch_assoc($resultfoto);
 
 $nrp = $_SESSION['nrp'];
 
-if($result==null){
+if ($result == null) {
     header("Location: listUKM-LK.php");
 }
 
-if ($result['audisi'] == 'ya') {
-    $tipe = 'audisi';
-    $sql = "SELECT count(*) as total FROM `pendaftar_maba` WHERE terima = 'terima' and ukm like '" . $ukm . "' and cancel is null";
+// if ($result['audisi'] == 'ya') {
+//     $tipe = 'audisi';
+//     $sql = "SELECT count(*) as total FROM `pendaftar_maba` WHERE terima = 'terima' and ukm like '" . $ukm . "' and cancel is null";
+// } else {
+$sql = "SELECT count(*) as total FROM `pendaftar_maba` WHERE ukm like '" . $ukm . "'";
+$tipe = 'normal';
+if ($result['kuota_early_bird'] == 0) {
+    $tipePendaftaran = 'reguler';
 } else {
-    $sql = "SELECT count(*) as total FROM `pendaftar_maba` WHERE ukm like '" . $ukm . "' and cancel is null";
-    $tipe = 'normal';
-    if ($result['kuota_early_bird'] == 0) {
-        $tipePendaftaran = 'reguler';
-    } else {
-        $tipePendaftaran = 'early bird';
-    }
+    $tipePendaftaran = 'early bird';
 }
+// }
 
 $soldout = false;
 $query = mysqli_query($con, $sql);
@@ -64,7 +64,7 @@ if ($countQuota >= $result['quota']) {
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link href="css/detail.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -93,8 +93,7 @@ if ($countQuota >= $result['quota']) {
     <?php
     if ($result['livechat'] != '' && $result['livechat'] != null) {
         echo ($result['livechat']);
-    }
-    ;
+    };
     ?>
 
     <?php
@@ -109,13 +108,12 @@ if ($countQuota >= $result['quota']) {
                 <div class="text-center">
                     <?php
                     if ($result['logo'] != '' && $result['logo'] != null) {
-                        ?>
+                    ?>
                         <img src="../admin/dashboard/<?php echo $result['logo']; ?>" class="rounded-circle"
                             style="width :200px; background-color:white;" alt="...">
                     <?php } else { ?>
                         <img src=" " class="rounded-circle" style="width :200px; background-color:white;" alt="...">
-                    <?php }
-                    ; ?>
+                    <?php }; ?>
 
                 </div>
                 <div class="col d-flex justify-content-end fs-3 my-3">
@@ -140,8 +138,7 @@ if ($countQuota >= $result['quota']) {
                             echo nl2br($result['visi']);
                         } else {
                             echo "-";
-                        }
-                        ;
+                        };
                         ?>
                     </div>
                 </div>
@@ -152,8 +149,7 @@ if ($countQuota >= $result['quota']) {
                             echo nl2br($result['deskripsi']);
                         } else {
                             echo "-";
-                        }
-                        ;
+                        };
                         ?>
                     </div>
                 </div>
@@ -164,8 +160,7 @@ if ($countQuota >= $result['quota']) {
                             echo nl2br($result['misi']);
                         } else {
                             echo "-";
-                        }
-                        ;
+                        };
 
                         ?>
                     </div>
@@ -179,8 +174,7 @@ if ($countQuota >= $result['quota']) {
                                 echo nl2br($result['jadwal']);
                             } else {
                                 echo "-";
-                            }
-                            ;
+                            };
                             ?>
                         </p>
                 </div>
@@ -194,8 +188,7 @@ if ($countQuota >= $result['quota']) {
                                 echo $result['quota'];
                             } else {
                                 echo "-";
-                            }
-                            ;
+                            };
                             ?>
                         </p>
                     </div>
@@ -207,8 +200,7 @@ if ($countQuota >= $result['quota']) {
                                 echo $result['biaya'];
                             } else {
                                 echo "-";
-                            }
-                            ;
+                            };
                             ?>
                         </p>
                     </div>
@@ -220,8 +212,7 @@ if ($countQuota >= $result['quota']) {
                                 echo $result['no_rek'];
                             } else {
                                 echo "-";
-                            }
-                            ;
+                            };
                             ?>
                         </p>
                     </div>
@@ -229,7 +220,7 @@ if ($countQuota >= $result['quota']) {
                 <!-- Earlybird -->
                 <?php
                 if ($result['kuota_early_bird'] != 0) {
-                    ?>
+                ?>
                     <div class="container row text-white d-flex justify-content-center align-items-center">
                         <div class="col-md-4 fs-4 my-3" style="color:#FBE99C;">
                             <span class="fs-4 fw-bold">Kuota Early Bird</span>
@@ -268,7 +259,7 @@ if ($countQuota >= $result['quota']) {
                             </p>
                         </div>
                     </div>
-                    <?php
+                <?php
                 }
                 ?>
 
@@ -277,19 +268,19 @@ if ($countQuota >= $result['quota']) {
                     <div class="col-8 col-md-6">
                         <?php
                         if ($result['poster'] != '' && $result != null) {
-                            ?>
-                            <!-- <img src="../admin/dashboard/<?php //echo $result['poster']; ?>" alt="" style="width:100%"> -->
+                        ?>
+                            <!-- <img src="../admin/dashboard/<?php //echo $result['poster']; 
+                                                                ?>" alt="" style="width:100%"> -->
                             <a id="foto" href="../admin/dashboard/<?php echo $result['poster']; ?>"
                                 data-fancybox="gallery-poster" style="max-width:100%">
                                 <img src="../admin/dashboard/<?php echo $result['poster']; ?>" style="max-width:100%" />
                             </a>
-                            <?php
+                        <?php
                         } else {
-                            ?>
+                        ?>
                             <img src=" " alt="" style="width:100%">
-                            <?php
-                        }
-                        ;
+                        <?php
+                        };
                         ?>
 
                     </div>
@@ -306,7 +297,7 @@ if ($countQuota >= $result['quota']) {
 
                         while ($rowgambar = mysqli_fetch_assoc($query)) {
                             // if($rowgambar['foto'] !=null && $rowgambar['foto']!='' ){
-                            ?>
+                        ?>
                             <div class="col-md-3 d-flex align-items-center my-3">
                                 <a id="foto" class="align-items-center"
                                     href="../admin/dashboard/<?php echo $rowgambar['foto']; ?>" data-fancybox="gallery"
@@ -315,7 +306,7 @@ if ($countQuota >= $result['quota']) {
                                         style="max-width:100%" />
                                 </a>
                             </div>
-                            <?php
+                        <?php
                         }
                         ?>
                     </div>
@@ -327,16 +318,15 @@ if ($countQuota >= $result['quota']) {
                 <div class="container col-md-8 my-4">
                     <?php
                     if ($result['youtube'] != null && $result != '') {
-                        ?>
+                    ?>
                         <iframe class="yt" src="<?php echo $result['youtube']; ?>" title="YouTube video player"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen></iframe>
-                        <?php
+                    <?php
                     } else {
                         echo "-";
-                    }
-                    ;
+                    };
                     ?>
 
                 </div>
@@ -354,7 +344,7 @@ if ($countQuota >= $result['quota']) {
                         //     echo '<button type="button" class="btn-D btn-daftar" name="pendaftaran" id="pendaftaran"
                         //     onclick="location.href=\'pendaftaran2023.php?ukm='.$ukm.'\'">Daftar</button>';
                         // }else{
-                            echo '<div class="p-2" style="background-color:red; color:white; border:solid red; border-radius:15px; font-weight:700;">CLOSED</div>';
+                        echo '<div class="p-2" style="background-color:red; color:white; border:solid red; border-radius:15px; font-weight:700;">CLOSED</div>';
                         // }
                     } else {
                         echo '<div class="p-2" style="background-color:red; color:white; border:solid red; border-radius:15px; font-weight:700;">SOLD OUT</div>';
@@ -364,7 +354,7 @@ if ($countQuota >= $result['quota']) {
                             </script>";
                     }
 
-                    
+
                     ?>
                 </div>
             </div>
@@ -372,11 +362,11 @@ if ($countQuota >= $result['quota']) {
     </div>
     <script>
         <?php
-        if (isset($_GET['status'])){
-            if($_GET['status']==99){
+        if (isset($_GET['status'])) {
+            if ($_GET['status'] == 99) {
                 echo " swal('Close Registration', 'Pendaftaran telah tutup', 'error');";
             }
-        } 
+        }
         ?>
     </script>
     <script src="js/detail.js"></script>
@@ -389,7 +379,7 @@ if ($countQuota >= $result['quota']) {
         $('#desc').show();
         $('#visi,#misi').hide();
 
-        $('#btn-visi').click(function () {
+        $('#btn-visi').click(function() {
             $('#btn-desc').removeClass("focus");
             $('#btn-misi').removeClass("focus");
             if (!$('#btn-visi').hasClass("focus")) {
@@ -399,7 +389,7 @@ if ($countQuota >= $result['quota']) {
             $('#misi').hide();
             $('#visi').show();
         });
-        $('#btn-desc').click(function () {
+        $('#btn-desc').click(function() {
             $('#btn-visi').removeClass("focus");
             $('#btn-misi').removeClass("focus");
             if (!$('#btn-desc').hasClass("focus")) {
@@ -410,7 +400,7 @@ if ($countQuota >= $result['quota']) {
             $('#desc').show();
 
         });
-        $('#btn-misi').click(function () {
+        $('#btn-misi').click(function() {
             $('#btn-visi').removeClass("focus");
             $('#btn-desc').removeClass("focus");
             if (!$('#btn-misi').hasClass("focus")) {
